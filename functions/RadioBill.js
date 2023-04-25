@@ -18,11 +18,24 @@ function RadioBill() {
   function totalCost() {
     return sumCalls + sumSms;
   }
+  function setClassName() {
+    if (totalCost() >= 50) {
+      return "critical";
+    }
+    if (totalCost() >= 30) {
+      return "warning";
+    }
+  }
+  function getClassName() {
+    return setClassName();
+  }
 
   return {
     radioInput,
     totalCallCost,
     totalSmsCost,
     totalCost,
+    setClassName,
+    getClassName,
   };
 }

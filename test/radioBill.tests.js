@@ -37,4 +37,71 @@ describe("RadioBill function test", function () {
     assert.equal(3, radioBill.totalSmsCost());
     assert.equal(11.25, radioBill.totalCost());
   });
+  it("it should return the class name of 'warning', when the warning level has been reached call cost.", function () {
+    let radioBill = RadioBill();
+
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+
+    assert.equal("warning", radioBill.getClassName());
+
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+
+    assert.equal("critical", radioBill.getClassName());
+  });
+  it("it should return the class name of 'critical', when the critical level has been reached", function () {
+    let radioBill = RadioBill();
+
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    assert.equal("warning", radioBill.getClassName());
+
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("call");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    radioBill.radioInput("sms");
+    assert.equal("critical", radioBill.getClassName());
+  });
 });

@@ -1,4 +1,4 @@
-describe("The calculate bill function", function () {
+describe("Test My calculateBill Function", function () {
   it("should eqaul 5.5 when called with 'call, call' ", function () {
     assert.equal(5.5, calculateBill("call,call"));
   });

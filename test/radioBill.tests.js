@@ -1,4 +1,4 @@
-describe("RadioBill function test", function () {
+describe("Test My RadioBill Function", function () {
   it("it should return '11' for 4 calls at 2.75 each if the radio input value is 'call'", function () {
     let radioBill = RadioBill();
 

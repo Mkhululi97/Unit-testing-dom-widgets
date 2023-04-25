@@ -1,4 +1,4 @@
-describe("TextBill Function Test", function () {
+describe("Test My TextBill Function", function () {
   it("should return '19.25' for 7 calls at 2.75 each if the text input value is 'call, CaLl, CALL'", function () {
     let textBill = TextBill();
 

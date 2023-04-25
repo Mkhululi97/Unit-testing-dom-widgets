@@ -37,7 +37,7 @@ describe("RadioBill function test", function () {
     assert.equal(3, radioBill.totalSmsCost());
     assert.equal(11.25, radioBill.totalCost());
   });
-  it("it should return the class name of 'warning', when the warning level has been reached call cost.", function () {
+  it("it should return the class name of 'warning', when the warning level has been reached.", function () {
     let radioBill = RadioBill();
 
     radioBill.radioInput("call");
